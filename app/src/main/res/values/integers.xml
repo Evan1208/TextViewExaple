@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="stroke_width">4</integer>
+    <integer name="heart_animation_duration">3000</integer>
+<!--    <integer-array name="rainbow">-->
+<!--        <item >16711680</item>-->
+<!--        <item >16744192</item>-->
+<!--        <item >16776960</item>-->
+<!--        <item >65280</item>-->
+<!--        <item >255</item>-->
+<!--        <item >4915330</item>-->
+<!--        <item >9699539</item>-->
+<!--    </integer-array>-->
+
+
+
+</resources>

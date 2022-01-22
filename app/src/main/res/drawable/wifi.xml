@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="true">
+    <!--    true 只做一次  false 一直循環-->
+    <item
+        android:drawable="@drawable/wifi_001"
+        android:duration="200" />
+    <item
+        android:drawable="@drawable/wifi_002"
+        android:duration="200" />
+    <item
+        android:drawable="@drawable/wifi_003"
+        android:duration="200" />
+    <item
+        android:drawable="@drawable/wifi_004"
+        android:duration="200" />
+</animation-list>

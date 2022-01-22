@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/mOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="邊旋轉邊變形"
+            app:drawableBottomCompat="@drawable/avd"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/mTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="只旋轉邊不變形"
+            app:drawableBottomCompat="@drawable/just_rotation"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mOne" />
+
+        <TextView
+            android:id="@+id/mThree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="只旋轉邊不變形"
+            app:drawableBottomCompat="@drawable/not_rotation"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mTwo" />
+
+
+        <TextView
+            android:id="@+id/mFour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="時鐘"
+            app:drawableBottomCompat="@drawable/nine_to_five"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mThree" />
+
+        <CheckBox
+            android:id="@+id/mFive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/fill_in_heart"
+            android:text="愛心"
+            android:textSize="16sp"
+            app:drawableBottomCompat="@drawable/fill_in_heart"
+            app:layout_constraintLeft_toRightOf="@+id/mOne"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/mSix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="愛心"
+            app:drawableBottomCompat="@drawable/fill_in_heart_two"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mFour" />
+
+        <TextView
+            android:id="@+id/mSeven"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="笑臉"
+            app:drawableBottomCompat="@drawable/smiling_face"
+            app:layout_constraintLeft_toRightOf="@+id/mFive"
+            app:layout_constraintTop_toTopOf="@+id/mFive" />
+
+        <TextView
+            android:id="@+id/mEight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="wifi"
+            app:drawableBottomCompat="@drawable/wifi"
+            app:layout_constraintLeft_toRightOf="@+id/mThree"
+            app:layout_constraintTop_toTopOf="@+id/mThree" />
+
+        <TextView
+            android:id="@+id/mNine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:shadowColor="#7000"
+            android:shadowDx="12"
+            android:shadowDy="12"
+            android:shadowRadius="8"
+            android:text="123"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@+id/mFour"
+            app:layout_constraintTop_toBottomOf="@+id/mEight" />
+
+        <TextView
+            android:id="@+id/mTen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:shadowColor="@color/green"
+            android:shadowDx="4"
+            android:shadowDy="-4"
+            android:shadowRadius="1"
+            android:text="bbb"
+            android:textColor="#ff00ff"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@+id/mFour"
+            app:layout_constraintTop_toBottomOf="@+id/mNine" />
+
+        <TextView
+            android:id="@+id/mEleven"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/black"
+            android:padding="12dp"
+            android:shadowColor="@color/yellow"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="24"
+            android:text="glow"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mSix" />
+
+        <TextView
+            android:id="@+id/mTwelve"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="glow"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mEleven" />
+
+        <TextView
+            android:id="@+id/mThirteen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="glow"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mTwelve" />
+
+        <TextView
+            android:id="@+id/mFourteen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="UnderlineSpan"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mThirteen" />
+
+        <TextView
+            android:id="@+id/mFifteen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="StrikethroughSpan"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mFourteen" />
+
+        <TextView
+            android:id="@+id/mSixteen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="SubscriptSpan"
+            android:textColor="@android:color/black"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mFifteen" />
+
+        <TextView
+            android:id="@+id/mEighteen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="StrikethroughSpan"
+            android:textColor="@android:color/black"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mSixteen" />
+
+        <TextView
+            android:id="@+id/mNineteen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="StrikethroughSpan"
+            android:textColor="@android:color/black"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mEighteen" />
+
+        <TextView
+            android:id="@+id/mTwenty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="StrikethroughSpan"
+            android:textColor="@android:color/black"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mNineteen" />
+
+        <TextView
+            android:id="@+id/mTwentyOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ssssssssss"
+            android:textColor="@android:color/black"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mTwenty" />
+
+        <TextView
+            android:id="@+id/mTwentyTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ssssssssss"
+            android:textColor="@android:color/black"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mTwentyOne" />
+
+
+        <Button
+            android:id="@+id/mNextPage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="nextPage"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
