@@ -11,18 +11,16 @@ import androidx.databinding.DataBindingUtil
 import android.text.style.*
 
 import android.annotation.SuppressLint
-import android.content.res.Resources
 import android.text.*
 import android.util.AttributeSet
 
 import android.widget.EditText
 import com.example.textviewexample.databinding.ActivityPageOneBinding
 import android.text.style.LeadingMarginSpan
+import android.view.View
+import android.view.Window
+import com.example.textviewexample.particle.Particle.Companion.dp
 
-
-
-val Int.dp: Int
-    get() = (this * Resources.getSystem().displayMetrics.density + 0.5f).toInt()
 
 class PageOneActivity : AppCompatActivity() {
 
@@ -109,6 +107,20 @@ class PageOneActivity : AppCompatActivity() {
         }
 
         mBinding.mFour.text = iAllText
+
+
+        mBinding.mFour.setOnClickListener {
+            mBinding.mFive.createBitmapFromView(it)
+        }
+
+        mBinding.mThree.setOnClickListener {
+            mBinding.mFive.createBitmapFromView(it)
+        }
+
+//        mBinding.mThree.setOnClickListener {
+//            mBinding.mSix.createBitmapFromView(it)
+//        }
+
 
     }
 

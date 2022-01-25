@@ -13,3 +13,17 @@ https://blog.csdn.net/Android_Mnbvcxz/article/details/78933227
 Rainbow
 https://chiuki.github.io/advanced-android-textview/#/39
 https://github.com/dtlam2601/Numbers/blob/master/app/src/main/java/com/example/lam/numbers/controller/AnimatedColorSpan.java
+
+// Canvas 篩圖文題
+https://stackoverflow.com/questions/22610145/unsupportedexception-from-canvas-setbitmapbitmap
+
+粒子動畫
+https://github.com/Xieyupeng520/AZExplosion/blob/master/app/src/main/java/explosionfield/azz/com/azexplosionfield/explosion/ExplosionField.java
+https://blog.csdn.net/xieyupeng520/article/details/49951835
+
+2 d kotlin
+https://stackoverflow.com/questions/34145495/2d-array-in-kotlin
+
+status bar
+https://developer.android.com/training/gestures/edge-to-edge
+https://gist.github.com/hamakn/8939eb68a920a6d7a498
