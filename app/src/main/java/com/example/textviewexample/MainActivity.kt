@@ -142,7 +142,7 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun setAnimation(pArrayDrawable: Array<Drawable>) {
-        Log.v("aaa","ArrayDrawable size=${pArrayDrawable.size}")
+//        Log.v("aaa","ArrayDrawable size=${pArrayDrawable.size}")
         for( iDrawable in pArrayDrawable) {
             if( iDrawable is Animatable) {
                 iDrawable.start()

@@ -109,18 +109,21 @@ class PageOneActivity : AppCompatActivity() {
         mBinding.mFour.text = iAllText
 
 
-        mBinding.mFour.setOnClickListener {
-            mBinding.mFive.createBitmapFromView(it)
-        }
-
-        mBinding.mThree.setOnClickListener {
-            mBinding.mFive.createBitmapFromView(it)
-        }
-
-//        mBinding.mThree.setOnClickListener {
-//            mBinding.mSix.createBitmapFromView(it)
+//        mBinding.mFour.setOnClickListener {
+//            mBinding.mFive.createBitmapFromView(it)
 //        }
 
+//        mBinding.mThree.setOnClickListener {
+//            mBinding.mFive.createBitmapFromView(it)
+//        }
+
+        mBinding.mThree.setOnClickListener {
+            mBinding.mSix.createBitmapFromView(it)
+        }
+
+        mBinding.mFour.setOnClickListener {
+            mBinding.mSix.createBitmapFromView(it)
+        }
 
     }
 

@@ -1,5 +1,6 @@
 package com.example.textviewexample.particle
 
+import android.animation.Animator
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
@@ -7,6 +8,7 @@ import android.graphics.drawable.BitmapDrawable
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View
+import android.view.animation.AccelerateInterpolator
 import android.widget.ImageView
 
 class ExplosionField: View {
@@ -16,17 +18,18 @@ class ExplosionField: View {
     }
 
     private val mExplosionAnimator = arrayListOf<ExplosionAnimator>()
+    private val mExplosionView = arrayListOf<View>()
     private var mBitmap:Bitmap ?= null
     private var mIsDrawNow = false
 
     fun createBitmapFromView(pView: View): Bitmap? {
-        Log.v("aaa","-----createBitmapFromView ININ---")
+//        Log.v("aaa","-----createBitmapFromView ININ---")
         synchronized(this) {
             if( mIsDrawNow) {
                 return null
             }
         }
-        Log.v("aaa","-----createBitmapFromView----$mIsDrawNow")
+//        Log.v("aaa","-----createBitmapFromView----$mIsDrawNow")
         mIsDrawNow = true
 
 
@@ -51,11 +54,40 @@ class ExplosionField: View {
                     mCanvas.setBitmap(null)
                 }
                 val iExplosionAnimator = ExplosionAnimator()
-                iExplosionAnimator.setView(pView, it)
-                mExplosionAnimator.clear()
+                iExplosionAnimator.setView(pView, it, this)
+
+                if( mExplosionView.isNotEmpty()) {
+                    val iIndex = mExplosionView.indexOf(pView)
+                    if( iIndex != -1) {
+                        mExplosionView.remove(pView)
+                        val iiExplosionAnimator = mExplosionAnimator[iIndex]
+                        mExplosionAnimator.removeAt(iIndex)
+                        iiExplosionAnimator.cancel()
+                    }
+                }
+                mExplosionView.add(pView)
                 mExplosionAnimator.add(iExplosionAnimator)
+                iExplosionAnimator.addListener(object : Animator.AnimatorListener{
+                    override fun onAnimationStart(animation: Animator?) {
+                        Log.v("aaa","onAnimationStart")
+                        pView.animate().alpha(0f).setDuration(150).start()
+                    }
+
+                    override fun onAnimationEnd(animation: Animator?) {
+                        Log.v("aaa","onAnimationEnd")
+                        pView.animate().alpha(1f).setDuration(150).start()
+                    }
+
+                    override fun onAnimationCancel(animation: Animator?) {
+                    }
+
+                    override fun onAnimationRepeat(animation: Animator?) {
+                    }
+
+                })
+                iExplosionAnimator.interpolator = AccelerateInterpolator(1.5f)
+                iExplosionAnimator.start()
                 mBitmap = it
-                invalidate()
                 return it
             } ?: kotlin.run {
                 return null
@@ -78,11 +110,12 @@ class ExplosionField: View {
 
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
+        Log.v("aaa","bbbbb")
         if( canvas != null ) {
             for( iExplosionAnimator in mExplosionAnimator) {
                 iExplosionAnimator.draw(canvas)
             }
-            Log.v("aaa","-----createBitmapFromView  onDraw----$mIsDrawNow")
+//            Log.v("aaa","-----createBitmapFromView  onDraw----$mIsDrawNow")
             mIsDrawNow = false
         }
 

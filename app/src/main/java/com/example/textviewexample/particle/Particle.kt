@@ -4,6 +4,7 @@ import android.content.res.Resources
 import android.graphics.Point
 import android.graphics.Rect
 import android.util.Log
+import kotlin.random.Random
 
 class Particle {
 
@@ -11,7 +12,7 @@ class Particle {
         val Int.dp: Int
             get() = (this * Resources.getSystem().displayMetrics.density + 0.5f).toInt()
 
-        const val mPartWh = 3
+        const val mPartWh = 8
 
         fun getStatusBar(): Int {
             var statusBarHeight = 0
@@ -32,12 +33,12 @@ class Particle {
             iParticle.mAlpha = 1f
 
             iParticle.mRadius = mPartWh.toFloat()
-            iParticle.mCx = (pBound.left + (mPartWh * iColumn)).toFloat() //- 10.dp
-            iParticle.mCy = (pBound.top + (mPartWh * iRow)).toFloat() //- (pBound.height()/2 + 8/2)
+            iParticle.mCx = (pBound.left + (mPartWh * iColumn)).toFloat()
+            iParticle.mCy = (pBound.top + (mPartWh * iRow)).toFloat()
 
-            Log.d("aaa", "iRow=$iRow, iColumn=$iColumn")
-            Log.d("aaa", "pBound.left=${pBound.left}, pBound.top=${pBound.top}")
-            Log.d("aaa", "mCx=${iParticle.mCx}, mCy=${iParticle.mCy}")
+//            Log.d("aaa", "iRow=$iRow, iColumn=$iColumn")
+//            Log.d("aaa", "pBound.left=${pBound.left}, pBound.top=${pBound.top}")
+//            Log.d("aaa", "mCx=${iParticle.mCx}, mCy=${iParticle.mCy}")
 
             return iParticle
         }
@@ -52,7 +53,14 @@ class Particle {
     var mColor = 1
     var mAlpha = 0.0f
 
+    fun advance(pFactor: Float) {
+        mCx += pFactor * Random.nextInt(mBound.width()) * (Random.nextFloat() - 0.5f)
+        mCy += pFactor * Random.nextInt(mBound.height()/2)
 
+        mRadius -= pFactor * Random.nextInt(2)
+
+        mAlpha = (1f - pFactor) * ( 1 + Random.nextFloat())
+    }
 
 
 }
