@@ -17,6 +17,7 @@ import android.util.AttributeSet
 import android.widget.EditText
 import com.example.textviewexample.databinding.ActivityPageOneBinding
 import android.text.style.LeadingMarginSpan
+import android.util.Log
 import android.view.View
 import android.view.Window
 import com.example.textviewexample.particle.Particle.Companion.dp
@@ -165,6 +166,59 @@ class LinedEditText: EditText {
         }
 
         super.onDraw(canvas)
+    }
+
+
+    //多筆分段處理
+    private fun setStringData(pTitle:ArrayList<String>, pContent:ArrayList<String>, pLevel: Int,
+                              pAllContent:CharSequence): CharSequence {
+        var iAllText: CharSequence = pAllContent
+
+        val iMargeLeftFirst = 20 * pLevel
+        val iTitleX = 20 * (pLevel - 1)
+
+
+        for (i in pTitle.indices) {
+            val aBullet = pTitle[i]
+            val t = pContent[i].trim()
+
+            // 註意此處的換行, 如果沒有換行符, 則系統當做只有一個項目處理
+            val spannableString = SpannableString(t+"\n")
+            spannableString.setSpan(object : LeadingMarginSpan {
+                override fun getLeadingMargin(first: Boolean): Int {
+
+                    // 項目符號和正文的縮進距離, 單位 px
+                    // 我們可以根據 first 來改變第1行和其余行的縮進距離
+                    return iMargeLeftFirst.dp
+                }
+
+                override fun drawLeadingMargin(
+                    c: Canvas,
+                    p: Paint,
+                    x: Int,
+                    dir: Int,
+                    top: Int,
+                    baseline: Int,
+                    bottom: Int,
+                    text: CharSequence?,
+                    start: Int,
+                    end: Int,
+                    first: Boolean,
+                    layout: Layout?
+                ) {
+                    Log.v("aaa","first=$first")
+                    // 只對第1行文本添加項添加符號
+                    if (first) {
+                        val orgStyle = p.style
+                        p.style = Paint.Style.FILL
+                        c.drawText(aBullet, iTitleX.dp.toFloat(), bottom - p.descent(), p)
+                        p.style = orgStyle
+                    }
+                }
+            }, 0, t.length, 0)
+            iAllText = TextUtils.concat(iAllText, spannableString)
+        }
+        return iAllText
     }
 
 }
